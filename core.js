@@ -16,14 +16,27 @@ MconfGraphics.plotSeries = function(series, div)
 	var datapoints = json_series.datapoints;
 	var result = { users: [], audio: [], video: [], room: [] };
 	for (var idx = 0, end = datapoints.length; idx < end; idx += 1) {
-	    result.users.push([datapoints[idx].timestamp * 1000,
-			       datapoints[idx].value.users]);
-	    result.video.push([datapoints[idx].timestamp * 1000,
-			       datapoints[idx].value.video]);
-	    result.audio.push([datapoints[idx].timestamp * 1000,
-			       datapoints[idx].value.audio]);
-	    result.room.push([datapoints[idx].timestamp * 1000,
-			      datapoints[idx].value.room]);
+		var timestamp = datapoints[idx].timestamp * 1000;
+		var previousIdx = (idx == 0)? 0: idx - 1;
+		
+		var previousValue = datapoints[previousIdx].value;
+		var value = datapoints[idx].value;
+
+		if (value.users_count != previousValue.users_count)
+			result.users.push([timestamp, previousValue.users_count]);
+	    result.users.push([timestamp, value.users_count]);
+	    
+		if (value.video_count != previousValue.video_count)
+			result.video.push([timestamp, previousValue.video_count]);	    
+	    result.video.push([timestamp, value.video_count]);
+
+		if (value.audio_count != previousValue.audio_count)
+			result.audio.push([timestamp, previousValue.audio_count]);
+	    result.audio.push([timestamp, value.audio_count]);
+
+		if (value.room_count != previousValue.room_count)
+			result.room.push([timestamp, previousValue.room_count]);
+	    result.room.push([timestamp, value.room_count]);
 	}
 
 	return result;
@@ -37,7 +50,7 @@ MconfGraphics.plotSeries = function(series, div)
     };
 
     var formatted_series = formatSeries(series);
-			      
+
     var plot_data = [{ 
 	    data: formatted_series.users,
 	    color: 'blue',
