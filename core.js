@@ -5,7 +5,8 @@ function /*class*/ MconfGraphics() {
 MconfGraphics.core_flot = function() 
 {
     $.jsonp({
-	'url': 'http://localhost:1234/stats/?callback=MconfGraphics.onDataReceived',
+	'url': 'https://mconf.org/stats/json/?callback=MconfGraphics.onDataReceived',
+//	'url': 'http://localhost:1234/stats/?callback=MconfGraphics.onDataReceived',
 	'method': 'GET',
     });
 };
