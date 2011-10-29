@@ -2,26 +2,28 @@
 <html>
  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Flot Examples</title>
+    <title>Mconf-Graphics</title>
     <link href="layout.css" rel="stylesheet" type="text/css">
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../excanvas.min.js"></script><![endif]-->
     <script language="javascript" type="text/javascript" src="./jquery/jquery.js"></script>
-    <script language="javascript" type="text/javascript"
-    src="./jquery/jquery.flot.js"></script>
-    <script language="javascript" type="text/javascript"
-    src="./core.js"></script>
-    <script language="javascript" type="text/javascript"
-    src="./jquery/jquery.jsonp.min.js"></script>
+    <script language="javascript" type="text/javascript" src="./jquery/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="./jquery/jquery.flot.selection.js"></script>
+    <script language="javascript" type="text/javascript" src="./core.js"></script>
+    <script language="javascript" type="text/javascript" src="./jquery/jquery.jsonp.min.js"></script>
  </head>
     <body>
 
-    <h1>Daily Summary</h1>
-    <div id="placeholder_daily" style="width:800px;height:200px;"></div>
-    <h1>Weekly Summary</h1>
-    <div id="placeholder_weekly" style="width:800px;height:200px;"></div>
-    <h1>Monthly Summary</h1>
-    <div id="placeholder_monthly" style="width:800px;height:200px;"></div>
+    <h1>Mconf statistics summary</h1>
+    <div id="placeholder" style="width:800px;height:200px;"></div>
 
+    <p>Detailed information:</p>
+    <p id="details"></p>
+
+    <div id="overview" style="margin-left:50px;margin-top:20px;width:400px;height:100px"></div> 
+
+
+    <p id="choices">Show:</p>
+    
     <script type="text/javascript">$(MconfGraphics.core_flot);</script>
 
  </body>
