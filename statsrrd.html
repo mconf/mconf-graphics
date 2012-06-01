@@ -21,7 +21,8 @@
             function build_url(value) {
                 var num_points = 150;
                 var rrdopts = "+-snow-VALUE+-enow-0+--step=PERCENTAGE";
-                var addr = "http://lb.mconf.org:8080/nagiosgraph/cgi-bin/showgraph.cgi?host=lb.mconf.org&service=BigBlueButton%20Info&db=users,data&db=meetings,data&db=audios,data&db=videos,data&rrdopts=" + rrdopts;
+                //var addr = "http://lb.mconf.org:8080/nagiosgraph/cgi-bin/showgraph.cgi?host=lb.mconf.org&service=BigBlueButton%20Info&db=users,data&db=meetings,data&db=audios,data&db=videos,data&rrdopts=" + rrdopts;
+                var addr = "http://lb.mconf.org:8080/nagiosgraph/cgi-bin/showgraph.cgi?host=lb.mconf.org&service=BigBlueButton%20Info&db=users,data&db=meetings,data&rrdopts=" + rrdopts;
                 addr = addr.replace("VALUE", Math.floor(value)).replace("PERCENTAGE", Math.floor(value / num_points));
                 return addr;
             }
